@@ -2,9 +2,13 @@ package BancoDaora;
 
 public class ContaInvestimento extends Conta{
 	private float saldo;
+        private String cpf;
+        private String nome;
+        private int cod;
 
-    ContaInvestimento(float valor) {
-        this.saldo = valor;
+    ContaInvestimento(String a, String b){
+        this.nome = a;
+        this.cpf = b;
     }
 	protected void setSaldo(float valor) {
 		this.saldo = valor;

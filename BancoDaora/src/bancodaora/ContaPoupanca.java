@@ -2,9 +2,13 @@ package BancoDaora;
 
 public class ContaPoupanca extends Conta {
 	private float saldo;
+        private String cpf;
+        private String nome;
+        private int cod;
 
-    ContaPoupanca(float valor) {
-        this.saldo = valor;
+    ContaPoupanca(String a, String b){
+        this.nome = a;
+        this.cpf = b;
     }
 	
 	protected void setSaldo(float valor) {

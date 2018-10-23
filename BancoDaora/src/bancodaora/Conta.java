@@ -2,6 +2,9 @@ package BancoDaora;
 public abstract class Conta {
 	
 	private float saldo;
+        private String nome;
+        private String cpf;
+        private int cod;
         
 	protected void setSaldo(float valor) {
 		this.saldo = valor;

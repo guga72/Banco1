@@ -1,10 +1,11 @@
-package BancoDaora;
+package bancodaora;
 public abstract class Conta {
 	
 	private float saldo;
         private String nome;
         private String cpf;
         private int cod;
+        private String conta;
         
 	protected void setSaldo(float valor) {
 		this.saldo = valor;
@@ -23,5 +24,8 @@ public abstract class Conta {
 		this.retirar(valor);
 		outraConta.depositar(valor);
 	}
-	
+
+	public String getcpf(){return cpf;}
+	public String getConta(){return conta;}
+	public int getCod(){return cod;	}
 }

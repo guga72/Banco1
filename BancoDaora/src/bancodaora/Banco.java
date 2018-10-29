@@ -28,7 +28,7 @@ public class Banco {
         Banco.conta.add(conta);
     }
     
-    public static Correntista buscarPorCpf(String cpf) {		
+    public Correntista buscarPorCpf(String cpf) {
 		Correntista resultado = null;
 		
 		for(Correntista correntista : Banco.correntista) {
@@ -40,5 +40,33 @@ public class Banco {
 		
 		return resultado;
 	}
-    
+
+	public Conta buscarConta(String cpf, String conta1){
+        Conta isso = null;
+        for(Conta Conta : Banco.conta) {
+            if(Conta.getcpf().equals(cpf) && Conta.getConta().toUpperCase().equals(conta1)) {
+                isso = Conta;
+            }
+            break;
+        }
+        return isso;
+    }
+
+    public Conta buscarConta(int a){
+        Conta isso = null;
+        for(Conta Conta : Banco.conta) {
+            if(Conta.getCod() == a) {
+                isso = Conta;
+            }
+            break;
+        }
+        return isso;
+    }
+    public void excluirConta(String cpf, int cod){
+        for(Conta Conta : Banco.conta) {
+            if(Conta.getcpf().equals(cpf) && Conta.getCod() == cod){
+                Banco.conta.remove(conta);
+            }
+        }
+    }
 }

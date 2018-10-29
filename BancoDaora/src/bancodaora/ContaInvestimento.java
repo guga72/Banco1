@@ -1,14 +1,17 @@
-package BancoDaora;
+package bancodaora;
 
 public class ContaInvestimento extends Conta{
-	private float saldo;
+	private float saldo = 0;
         private String cpf;
         private String nome;
         private int cod;
+        private String conta;
 
-    ContaInvestimento(String a, String b){
+    ContaInvestimento(String a, String b, int c){
         this.nome = a;
         this.cpf = b;
+		this.cod = c;
+		this.conta = "Investimento";
     }
 	protected void setSaldo(float valor) {
 		this.saldo = valor;
@@ -35,4 +38,7 @@ public class ContaInvestimento extends Conta{
         public void render(float saldo){
             this.saldo = this.saldo * 1.05f;
         }
+		public String getcpf(){return cpf;}
+	public String getConta(){return conta;}
+	public int getCod(){return cod;	}
 }

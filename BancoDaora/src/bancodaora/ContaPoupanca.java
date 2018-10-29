@@ -1,14 +1,17 @@
-package BancoDaora;
+package bancodaora;
 
 public class ContaPoupanca extends Conta {
 	private float saldo;
         private String cpf;
         private String nome;
         private int cod;
+        private String conta;
 
-    ContaPoupanca(String a, String b){
+    ContaPoupanca(String a, String b, int c){
         this.nome = a;
         this.cpf = b;
+		this.cod = c;
+        this.conta = "Poupanca";
     }
 	
 	protected void setSaldo(float valor) {
@@ -32,4 +35,5 @@ public class ContaPoupanca extends Conta {
 		this.retirar(valor);
 		outraConta.depositar(valor);
 	}
+	public String getcpf(){return cpf;}
 }

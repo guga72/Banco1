@@ -28,12 +28,12 @@ public class Banco {
         Banco.conta.add(conta);
     }
     
-    public Correntista buscarPorCpf(String cpf) {
-		Correntista resultado = null;
+    public Conta buscarPorCpf(String cpf) {
+		Conta resultado = null;
 		
-		for(Correntista correntista : Banco.correntista) {
-			if(correntista.getCpf().equals(cpf)) {
-				resultado = correntista;
+		for(Conta conta : Banco.conta) {
+			if(conta.getcpf().equals(cpf)){
+				resultado = conta;
 				break;
 			}
 		}
@@ -43,30 +43,34 @@ public class Banco {
 
 	public Conta buscarConta(String cpf, String conta1){
         Conta isso = null;
-        for(Conta Conta : Banco.conta) {
-            if(Conta.getcpf().equals(cpf) && Conta.getConta().toUpperCase().equals(conta1)) {
-                isso = Conta;
+        for(Conta conta : Banco.conta) {
+            if(conta.getcpf().equals(cpf) && conta.getConta().toUpperCase().equals(conta1)) {
+                isso = conta;
+                break;
             }
-            break;
-        }
+            }
         return isso;
     }
 
     public Conta buscarConta(int a){
         Conta isso = null;
-        for(Conta Conta : Banco.conta) {
-            if(Conta.getCod() == a) {
-                isso = Conta;
+        for(Conta conta : Banco.conta) {
+            if(a == conta.getCod()) {
+                isso = conta;
+                break;
             }
-            break;
         }
         return isso;
     }
     public void excluirConta(String cpf, int cod){
-        for(Conta Conta : Banco.conta) {
-            if(Conta.getcpf().equals(cpf) && Conta.getCod() == cod){
-                Banco.conta.remove(conta);
-            }
-        }
+       Conta a = this.buscarConta(cod);
+           if(a == null){
+               System.out.println("Conta inexistente");
+               System.out.println("Suck my dick");
+           }
+           else{
+            Banco.conta.remove(a);   
+           }
+            
     }
 }

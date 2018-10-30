@@ -28,4 +28,6 @@ public abstract class Conta {
 	public String getcpf(){return cpf;}
 	public String getConta(){return conta;}
 	public int getCod(){return cod;	}
+        public String getNome(){return nome;}
+        
 }

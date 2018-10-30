@@ -36,4 +36,8 @@ public class ContaPoupanca extends Conta {
 		outraConta.depositar(valor);
 	}
 	public String getcpf(){return cpf;}
+        public String getNome(){return nome;}
+        public String getConta(){
+            return conta;
+        }
 }

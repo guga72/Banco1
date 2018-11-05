@@ -8,6 +8,7 @@ public class ContaCorrente extends Conta{
         private String conta;
 
     ContaCorrente(String a, String b, int c){
+		this.saldo = 0;
         this.nome = a;
         this.cpf = b;
         this.cod = c;

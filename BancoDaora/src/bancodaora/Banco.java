@@ -64,13 +64,14 @@ public class Banco {
     }
     public void excluirConta(String cpf, int cod){
        Conta a = this.buscarConta(cod);
-           if(a == null){
-               System.out.println("Conta inexistente");
-               System.out.println("Suck my dick");
-           }
-           else{
+           if(a != null){
             Banco.conta.remove(a);   
            }
+        else{
+            System.out.println("------------------------------------------");
+            System.out.println("Conta inexistente");
+            System.out.println("------------------------------------------");
+        }
             
     }
 }

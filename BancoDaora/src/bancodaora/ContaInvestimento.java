@@ -8,6 +8,7 @@ public class ContaInvestimento extends Conta{
         private String conta;
 
     ContaInvestimento(String a, String b, int c){
+		this.saldo = 0;
         this.nome = a;
         this.cpf = b;
 		this.cod = c;

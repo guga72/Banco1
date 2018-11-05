@@ -8,10 +8,11 @@ public class ContaPoupanca extends Conta {
         private String conta;
 
     ContaPoupanca(String a, String b, int c){
+    	this.saldo = 0;
         this.nome = a;
         this.cpf = b;
 		this.cod = c;
-        this.conta = "Poupanca";
+        this.conta = "Poupança";
     }
 	
 	protected void setSaldo(float valor) {
@@ -40,4 +41,5 @@ public class ContaPoupanca extends Conta {
         public String getConta(){
             return conta;
         }
+	public int getCod(){return cod;	}
 }

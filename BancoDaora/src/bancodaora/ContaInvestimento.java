@@ -14,7 +14,7 @@ public class ContaInvestimento extends Conta{
 		this.cod = c;
 		this.conta = "Investimento";
     }
-	protected void setSaldo(float valor) {
+	public void setSaldo(float valor) {
 		this.saldo = valor;
 	}
 	

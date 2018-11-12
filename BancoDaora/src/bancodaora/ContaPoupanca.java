@@ -15,7 +15,7 @@ public class ContaPoupanca extends Conta {
         this.conta = "Poupança";
     }
 	
-	protected void setSaldo(float valor) {
+	public void setSaldo(float valor) {
 		this.saldo = valor;
 	}
 	

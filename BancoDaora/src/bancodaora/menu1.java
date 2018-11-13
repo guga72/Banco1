@@ -12,7 +12,7 @@ public class menu1 implements Menu {
     }
 
     @Override
-    public int pOpcao(int a, Banco b1, Scanner salve, Banco b2) {
+    public int pOpcao(int a, BancoInter b1, Scanner salve, CriadorConta criador) {
         System.out.print("Digite o seu nome:");
         salve.nextLine();
         this.nome = salve.next();
@@ -23,42 +23,39 @@ public class menu1 implements Menu {
         salve.nextLine();
         String isso = salve.next();
         if (isso.toUpperCase().equals("CORRENTE")) {
-            Conta cc = new ContaCorrente(nome, cpf, a);
-            b1.adicionar(cc);
+            Conta cria = criador.criadorcc(nome, cpf, a, b1);
             System.out.println("------------------------------------------");
             System.out.println("Seu cadastro foi realizado com sucesso!!!");
-            System.out.println("Numero:" + cc.getCod());
+            System.out.println("Numero:" + cria.getCod());
             System.out.println("------------------------------------------");
         }
         if (isso.toUpperCase().equals("POUPANÇA")) {
-            Conta cp = new ContaPoupanca(nome, cpf, a);
-            b1.adicionar(cp);
+            Conta cria = criador.criadorcp(nome, cpf, a, b1);
             System.out.println("------------------------------------------");
             System.out.println("Seu cadastro foi realizado com sucesso!!!");
-            System.out.println("Numero:" + cp.getCod());
+            System.out.println("Numero:" + cria.getCod());
             System.out.println("------------------------------------------");
         }
         if (isso.toUpperCase().equals("INVESTIMENTO")) {
-            Conta ci = new ContaInvestimento(nome, cpf, a);
-            b1.adicionar(ci);
+            Conta cria = criador.criadorci(nome, cpf, a, b1);
             System.out.println("------------------------------------------");
             System.out.println("Seu cadastro foi realizado com sucesso!!!");
-            System.out.println("Numero:" + ci.getCod());
+            System.out.println("Numero:" + cria.getCod());
             System.out.println("------------------------------------------");
         }
-        if(b2.buscarPorCpf(cpf) == null) {
-            Correntista co = new Correntista(nome, cpf);
-            b2.adicionar(co);
+        if(b1.buscarPorCpf(cpf) == null) {
+            CriadorCorrentista criaco = new CriadorCorrentista();
+            criaco.criadorco(nome, cpf);
         }
         cod++;
         return cod;
     }
 
     @Override
-    public void sOpcao(Banco b1, Scanner salve, int cont1) {
+    public void sOpcao(BancoInter b2, Scanner salve, int cont1) {
         System.out.print("Digite o codigo da sua conta:");
         int cont2 = salve.nextInt();
-        Conta no = b1.buscarConta(cont2);
+        ContaInter no = b2.buscarConta(cont2);
         if (no == null) {
             System.out.println("Não tem nenhuma conta");
         } else {
@@ -79,7 +76,7 @@ public class menu1 implements Menu {
                         m1.sOpcao(no, salve);
                         break;
                     case 3:
-                         m1.tOpcao(no, salve, b1);
+                         m1.tOpcao(no, salve, b2);
                         break;
                     case 4:
                         cont1 = 1;
@@ -90,7 +87,7 @@ public class menu1 implements Menu {
     }
 
     @Override
-    public void tOpcao(Banco b1, Scanner salve) {
+    public void tOpcao(BancoInter b1, Scanner salve) {
         System.out.println("------------------------------------------");
         System.out.print("Digite o número da conta:");
         int c1 = salve.nextInt();
@@ -100,10 +97,10 @@ public class menu1 implements Menu {
     }
 
     @Override
-    public void qOpcao(Banco b1, Scanner salve) {
+    public void qOpcao(BancoInter b2, Scanner salve) {
         System.out.print("Escreva o número da sua conta:");
         int num = salve.nextInt();
-        Conta c = b1.buscarConta(num);
+        Conta c = b2.buscarConta(num);
         System.out.println("------------------------------------------");
         System.out.println("Saldo:" + c.getSaldo());
         System.out.println("CPF:" + c.getcpf());

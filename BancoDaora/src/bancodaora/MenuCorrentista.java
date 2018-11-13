@@ -3,7 +3,7 @@ package bancodaora;
 import java.util.Scanner;
 
 public interface MenuCorrentista {
-    void pOpcao(Conta no, Scanner salve);
-    void sOpcao(Conta no, Scanner salve);
-    void tOpcao(Conta no, Scanner salve, Banco b1);
+    void pOpcao(ContaInter no, Scanner salve);
+    void sOpcao(ContaInter no, Scanner salve);
+    void tOpcao(ContaInter no, Scanner salve, BancoInter b1);
 }

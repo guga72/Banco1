@@ -8,17 +8,14 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         int cod = 1;
-        Banco b1 = new BancoCorrentista();
-        Banco b2 = new BancoConta();
+        CriadorConta cria = new CriadorConta();
+        BancoInter b1 = cria.criadorBanco();
         Scanner salve = new Scanner(System.in);
-        String nome;
-        String cpf;
-        String isso;
         for (; ; ) {
             int cont1 = 0;
             System.out.println("Escolha uma operação:");
             System.out.println("1-Fazer Conta");
-            System.out.println("2-Localizar Conta Correntista");
+            System.out.println("2-Localizar Conta");
             System.out.println("3-Excluir uma conta");
             System.out.println("4-Ver Situação da conta");
             System.out.println("5- Sair");
@@ -26,7 +23,7 @@ public class main {
             Menu m1 = new menu1(cod);
             switch (a) {
                 case 1:
-                    cod = m1.pOpcao(cod, b1, salve, b2);
+                    cod = m1.pOpcao(cod, b1, salve, cria);
                     break;
                 case 2:
                     m1.sOpcao(b1, salve, cont1);
@@ -42,6 +39,5 @@ public class main {
                                 break;
                         }
                     }
-
             }
         }
